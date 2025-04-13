@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 80" width="150" height="80">
+    <text x="10" y="60" font-size="64" font-weight="bold" fill="#000">B</text>
+    <polygon
+        points="60,50 75,30 90,50 84,50 75,38 67,50"
+        fill="#059B91" />
+    <text x="100" y="60" font-size="64" font-weight="bold" fill="#000">L</text>
+</svg>
+  
