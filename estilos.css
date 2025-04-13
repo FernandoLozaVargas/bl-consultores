@@ -1,0 +1,251 @@
+/* General */
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00abb3; /* Color de acento al pasar el ratón */
+}
+
+main section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main section h1,
+main section h2 {
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Sección de Inicio */
+#inicio {
+  background-color: #e0e0e0;
+  padding: 120px 20px;
+}
+
+#inicio h1 {
+  font-size: 2.5em;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #00abb3;
+  color: #fff;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #008080; /* Tono más oscuro del acento */
+}
+
+/* Sección de Contacto */
+#contacto form {
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: left;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#contacto label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#contacto input[type="text"],
+#contacto input[type="email"],
+#contacto textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+#contacto button[type="submit"] {
+  background-color: #4c49bd; /* Color primario */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#contacto button[type="submit"]:hover {
+  background-color: #333080; /* Tono más oscuro del primario */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9em;
+}
+
+/* Diseño Responsivo (Ejemplo básico) */
+@media (max-width: 768px) {
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  main section {
+    padding: 60px 20px;
+  }
+
+  #inicio {
+    padding: 80px 20px;
+  }
+}
+
+/* Estilos para el menú desplegable */
+nav .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+nav .dropdown-toggle {
+  display: block;
+  padding: 10px 0; /* Ajusta según tu estilo de navegación */
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer; /* Indica que es interactivo */
+}
+
+nav .dropdown-toggle:hover {
+  color: #00abb3;
+}
+
+nav .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 180px; /* Ajusta el ancho mínimo del menú */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
+  text-align: left;
+}
+
+nav .dropdown.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+nav .dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+nav .dropdown-menu li a:hover {
+  background-color: #f4f4f4;
+  color: #00abb3;
+}
+
+/* Ajuste para el layout de navegación */
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+/* Responsive para el dropdown (ejemplo básico) */
+@media (max-width: 768px) {
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  nav .dropdown {
+    display: block;
+  }
+
+  nav .dropdown-menu {
+    position: static;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    min-width: auto;
+    text-align: center;
+  }
+}
+/* ... otros estilos ... */
+
+nav .dropdown-toggle::after {
+  content: "";
+  display: inline-block;
+  margin-left: 5px; /* Espacio entre el texto y la flecha */
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333; /* Color de la flecha */
+  vertical-align: middle; /* Alinea verticalmente con el texto */
+  transition: transform 0.3s ease; /* Para una posible animación al abrir */
+}
+
+nav .dropdown.open .dropdown-toggle::after {
+  transform: rotate(180deg); /* Opcional: Rotar la flecha al abrir */
+}
+
+/* ... otros estilos ... */

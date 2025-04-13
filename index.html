@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Presentación</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <style>
+      /* Estilos para el menú desplegable */
+      nav .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      nav .dropdown-toggle {
+        display: block;
+        padding: 10px 0; /* Ajusta según tu estilo de navegación */
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        cursor: pointer; /* Indica que es interactivo */
+      }
+
+      nav .dropdown-toggle::after {
+        content: "";
+        display: inline-block;
+        margin-left: 5px; /* Espacio entre el texto y la flecha */
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #333; /* Color del triángulo */
+        vertical-align: middle; /* Alinea verticalmente con el texto */
+        transition: transform 0.3s ease; /* Para la animación de rotación */
+      }
+
+      nav .dropdown.open .dropdown-toggle::after {
+        transform: rotate(
+          180deg
+        ); /* Rota el triángulo cuando el menú está abierto */
+      }
+
+      nav .dropdown-toggle:hover {
+        color: #00abb3;
+      }
+
+      nav .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-top: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        min-width: 180px; /* Ajusta el ancho mínimo del menú */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 10; /* Asegura que esté por encima de otros elementos */
+        text-align: left;
+      }
+
+      nav .dropdown.open .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      nav .dropdown-menu li a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s ease;
+      }
+
+      nav .dropdown-menu li a:hover {
+        background-color: #f4f4f4;
+        color: #00abb3;
+      }
+
+      /* Ajuste para el layout de navegación */
+      nav ul li {
+        display: inline-block;
+        margin: 0 15px;
+      }
+
+      /* Responsive para el dropdown (ejemplo básico) */
+      @media (max-width: 768px) {
+        nav ul li {
+          display: block;
+          margin: 10px 0;
+        }
+
+        nav .dropdown {
+          display: block;
+        }
+
+        nav .dropdown-menu {
+          position: static;
+          border: none;
+          box-shadow: none;
+          opacity: 1;
+          visibility: visible;
+          min-width: auto;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li class="dropdown">
+            <span class="dropdown-toggle">Soluciones</span>
+            <ul class="dropdown-menu">
+              <li><a href="#gestion-cobranza">Gestión de Cobranza</a></li>
+              <li><a href="#plan-operativo">Plan Operativo</a></li>
+              <li><a href="#software-medida">Software a Medida</a></li>
+              <li>
+                <a href="#servicios-adicionales">Servicios Adicionales</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio">
+        <h1>Bienvenido</h1>
+        <p>Breve descripción de tu presentación.</p>
+      </section>
+
+      <section id="nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>Información sobre tu empresa o persona.</p>
+      </section>
+
+      <section id="soluciones">
+        <h2>Nuestras Soluciones</h2>
+        <p>Descripción general de nuestras soluciones.</p>
+      </section>
+
+      <section id="gestion-cobranza">
+        <h2>Gestión de Cobranza</h2>
+        <p>Información sobre nuestra solución de gestión de cobranza.</p>
+      </section>
+
+      <section id="plan-operativo">
+        <h2>Plan Operativo</h2>
+        <p>Detalles sobre nuestra solución de plan operativo.</p>
+      </section>
+
+      <section id="software-medida">
+        <h2>Software a Medida</h2>
+        <p>
+          Información sobre nuestro servicio de desarrollo de software a medida.
+        </p>
+      </section>
+
+      <section id="servicios-adicionales">
+        <h2>Servicios Adicionales</h2>
+        <p>Descripción de nuestros servicios adicionales.</p>
+      </section>
+
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <form action="procesar_contacto.php" method="post">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          <button type="submit">Enviar Mensaje</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mi Presentación</p>
+    </footer>
+
+    <script>
+      document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+
+          // Cerrar el menú desplegable si está abierto (opcional para experiencia en móviles)
+          const dropdown = this.closest(".dropdown");
+          if (dropdown && dropdown.classList.contains("open")) {
+            dropdown.classList.remove("open");
+          }
+        });
+      });
+
+      // JavaScript para el menú desplegable
+      const dropdownToggle = document.querySelector(".dropdown-toggle");
+      const dropdownMenu = document.querySelector(".dropdown-menu");
+
+      if (dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener("click", function (e) {
+          e.preventDefault();
+          this.closest(".dropdown").classList.toggle("open");
+        });
+
+        // Cerrar el menú desplegable si se hace clic fuera de él
+        document.addEventListener("click", function (e) {
+          if (
+            !e.target.closest(".dropdown") &&
+            document.querySelector(".dropdown.open")
+          ) {
+            document.querySelector(".dropdown.open").classList.remove("open");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
