@@ -1,8 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 80" width="150" height="80">
-    <text x="10" y="60" font-size="64" font-weight="bold" fill="#000">B</text>
-    <polygon
-        points="60,50 75,30 90,50 84,50 75,38 67,50"
-        fill="#059B91" />
-    <text x="100" y="60" font-size="64" font-weight="bold" fill="#000">L</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 64" width="105" height="64"
+  style="display: block; margin: 0 auto;">
+  <!-- Letra B -->
+  <text x="0" y="60" font-size="64" font-weight="bold" fill="#000">B</text>
+
+  <!-- Rombo angosto y más cercano -->
+  <polygon points="
+  44,50 
+  56,30 
+  68,50 
+  63,50 
+  56,38 
+  49,50" fill="#059B91" />
+
+  <!-- Letra L aún más cerca -->
+  <text x="66" y="60" font-size="64" font-weight="bold" fill="#000">L</text>
 </svg>
-  

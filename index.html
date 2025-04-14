@@ -115,45 +115,371 @@
   </head>
   <body>
     <header>
-      <nav>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li class="dropdown">
-            <span class="dropdown-toggle">Soluciones</span>
-            <ul class="dropdown-menu">
-              <li><a href="#gestion-cobranza">Gestión de Cobranza</a></li>
-              <li><a href="#plan-operativo">Plan Operativo</a></li>
-              <li><a href="#software-medida">Software a Medida</a></li>
-              <li>
-                <a href="#servicios-adicionales">Servicios Adicionales</a>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+      <div class="container-nav">
+        <div
+          class="logo"
+          style="display: inline-block; text-align: center; line-height: 1"
+        >
+          <img
+            src="imagenes/logos/logo.svg"
+            alt="Logo"
+            style="display: block; margin: 0 auto"
+          />
+          <div style="font-size: 20px; color: #444; margin-top: 4px">
+            B<span style="font-size: 12px; vertical-align: middle">&amp;</span>L
+            Consultores
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li class="dropdown">
+              <span class="dropdown-toggle">Soluciones</span>
+              <ul class="dropdown-menu">
+                <li><a href="#software-cobranza">Software de Cobranzas</a></li>
+                <li>
+                  <a href="#automatizacion-procesos"
+                    >Automatización de Procesos</a
+                  >
+                </li>
+                <li><a href="#plan-operativo">Plan Operativo</a></li>
+                <li><a href="#software-medida">Software a Medida</a></li>
+                <li>
+                  <a href="#servicios-adicionales">Servicios Adicionales</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <section id="inicio">
-        <h1>Bienvenido</h1>
-        <p>Breve descripción de tu presentación.</p>
+      <section
+        id="inicio"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2rem;
+          gap: 2rem;
+        "
+      >
+        <!-- Texto a la izquierda -->
+        <div style="flex: 1">
+          <h3 style="font-size: 2rem; margin-bottom: 1rem">
+            Bienvenido a L&B Consultores
+          </h3>
+          <p style="font-size: 1.1rem; line-height: 1.6">
+            Optimizamos tu trabajo con tecnología cloud innovadora.
+          </p>
+        </div>
+
+        <!-- Imagen a la derecha -->
+        <div style="flex: 1; text-align: center">
+          <img
+            src="imagenes/otros/img1.png"
+            alt="Ilustración profesional"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
       </section>
 
-      <section id="nosotros">
-        <h2>Sobre Nosotros</h2>
-        <p>Información sobre tu empresa o persona.</p>
+      <section
+        id="nosotros"
+        style="display: flex; align-items: flex-start; padding: 2rem; gap: 2rem"
+      >
+        <div style="flex: 1; text-align: left">
+          <h2>Somos B&L Consultores</h2>
+          <p>Ingeniería de software a tu servicio.</p>
+          <p>
+            Nos mantenemos a la vanguardia de la innovación tecnológica,
+            implementando las últimas herramientas y metodologías para construir
+            soluciones que no solo satisfacen tus necesidades actuales, sino que
+            también preparan tu negocio para los desafíos del futuro digital.
+          </p>
+        </div>
+        <div style="flex: 1">
+          <h3>Tecnologías Utilizadas</h3>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(3, minmax(100px, 1fr));
+              gap: 1.5rem;
+              align-items: center;
+              justify-items: center;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div
+                style="
+                  width: 100px;
+                  height: 100px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <img
+                  src="imagenes/otros/sql-server.png"
+                  alt="SQL Server"
+                  style="max-width: 100%; height: auto; display: block"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='SQL Server';"
+                />
+                <noscript>SQL Server</noscript>
+              </div>
+              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
+                SQL Server
+              </p>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div
+                style="
+                  width: 100px;
+                  height: 100px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <img
+                  src="imagenes/otros/oracle.png"
+                  alt="Oracle"
+                  style="max-width: 100%; height: auto; display: block"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='Oracle';"
+                />
+                <noscript>Oracle</noscript>
+              </div>
+              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
+                Oracle
+              </p>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div
+                style="
+                  width: 100px;
+                  height: 100px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <img
+                  src="imagenes/otros/mysql.png"
+                  alt="MySQL"
+                  style="max-width: 100%; height: auto; display: block"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='MySQL';"
+                />
+                <noscript>MySQL</noscript>
+              </div>
+              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
+                MySQL
+              </p>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div
+                style="
+                  width: 100px;
+                  height: 100px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <img
+                  src="imagenes/otros/laravel.png"
+                  alt="Laravel"
+                  style="max-width: 100%; height: auto; display: block"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='Laravel';"
+                />
+                <noscript>Laravel</noscript>
+              </div>
+              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
+                Laravel
+              </p>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div
+                style="
+                  width: 100px;
+                  height: 100px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <img
+                  src="imagenes/otros/aspnet.png"
+                  alt="ASP.NET"
+                  style="max-width: 100%; height: auto; display: block"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='ASP.NET';"
+                />
+                <noscript>ASP.NET</noscript>
+              </div>
+              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
+                ASP.NET
+              </p>
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div
+                style="
+                  width: 100px;
+                  height: 100px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <img
+                  src="imagenes/otros/javascript.png"
+                  alt="JavaScript"
+                  style="max-width: 100%; height: auto; display: block"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='JavaScript';"
+                />
+                <noscript>JavaScript</noscript>
+              </div>
+              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
+                JavaScript
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
+      <section
+        id="software-cobranza"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2rem;
+          gap: 2rem;
+        "
+      >
+        <!-- Texto a la izquierda -->
+        <div style="flex: 1">
+          <h3 style="font-size: 2rem; margin-bottom: 1rem">
+            Software de Cobranzas y Recuperación (RECSYS Cobranzas)
+          </h3>
+          <p style="font-size: 1.1rem; line-height: 1.6">
+            Gestiona la cobranza desde la etapa preventiva hasta la judicial.
+            Bitácora online para seguimiento detallado por cliente. Alertas
+            diarias de compromisos de pago. Cálculo automático de intereses y
+            gastos. Submódulo de letras (protestos, vencimientos, descuento /
+            cobranza libre, banco, etc.). Reportes detallados estadísticos:
+            atraso promedio, atraso máximo, comportamiento crediticio, línea de
+            crédito, niveles de compras, periodicidad, etc Clasificación de
+            clientes: lista negra y clientes premium.
+          </p>
+        </div>
 
-      <section id="soluciones">
-        <h2>Nuestras Soluciones</h2>
-        <p>Descripción general de nuestras soluciones.</p>
+        <!-- Imagen a la derecha -->
+        <div style="flex: 1; text-align: center">
+          <img
+            src="imagenes/otros/img2.png"
+            alt="Ilustración profesional"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
       </section>
+      <section
+        id="automatizacion-procesos"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2rem;
+          gap: 2rem;
+        "
+      >
+        <!-- Texto a la izquierda -->
+        <div style="flex: 1">
+          <h3 style="font-size: 2rem; margin-bottom: 1rem">
+            Automatización de Procesos
+          </h3>
+          <p style="font-size: 1.1rem; line-height: 1.6">
+            Envío automático de correos, SMS y WhatsApp preventivos. Emisión
+            automatizada de comunicaciones de cobranza. Llamadas predictivas
+            grabadas para vencimientos cercanos o recientes.
+          </p>
+        </div>
 
-      <section id="gestion-cobranza">
-        <h2>Gestión de Cobranza</h2>
-        <p>Información sobre nuestra solución de gestión de cobranza.</p>
+        <!-- Imagen a la derecha -->
+        <div style="flex: 1; text-align: center">
+          <img
+            src="imagenes/otros/img3.png"
+            alt="Ilustración profesional"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
       </section>
 
       <section id="plan-operativo">
@@ -188,7 +514,11 @@
     </main>
 
     <footer>
-      <p>&copy; 2025 Mi Presentación</p>
+      <p>
+        &copy; 2025 B<span style="font-size: 12px; vertical-align: middle"
+          >&amp;</span
+        >L Consultores
+      </p>
     </footer>
 
     <script>

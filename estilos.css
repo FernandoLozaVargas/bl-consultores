@@ -10,7 +10,7 @@ body {
 
 header {
   background-color: #fff;
-  padding: 20px 0;
+  padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -45,6 +45,8 @@ main section {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+
+  scroll-margin-top: 80px;
 }
 
 main section h1,
@@ -156,7 +158,7 @@ nav .dropdown {
 
 nav .dropdown-toggle {
   display: block;
-  padding: 10px 0; /* Ajusta según tu estilo de navegación */
+  padding: 6px 0; /* Antes 10px */
   text-decoration: none;
   color: #333;
   font-weight: bold;
@@ -249,3 +251,18 @@ nav .dropdown.open .dropdown-toggle::after {
 }
 
 /* ... otros estilos ... */
+
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 50px; /* Ajusta según el tamaño de tu logo */
+}
+
+ 
