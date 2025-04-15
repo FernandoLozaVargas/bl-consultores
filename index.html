@@ -7,190 +7,360 @@
     <title>
       B&L Consultores | Recsys: Software a Medida y Productos de Gestión
     </title>
-    <link rel="stylesheet" href="estilos.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
     <style>
-      /* Estilos para el menú desplegable */
-      nav .dropdown {
-        position: relative;
-        display: inline-block;
+      /* Estilos personalizados que podrían complementar Bootstrap */
+      .logo img {
+        height: 50px; /* Ajusta según el tamaño de tu logo */
       }
-
-      nav .dropdown-toggle {
-        display: block;
-        padding: 10px 0; /* Ajusta según tu estilo de navegación */
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        cursor: pointer; /* Indica que es interactivo */
+      .container-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px; /* Ajuste para el padding dentro del container */
       }
-
+      header {
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
       nav .dropdown-toggle::after {
         content: "";
         display: inline-block;
-        margin-left: 5px; /* Espacio entre el texto y la flecha */
+        margin-left: 5px;
         width: 0;
         height: 0;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-top: 5px solid #333; /* Color del triángulo */
-        vertical-align: middle; /* Alinea verticalmente con el texto */
-        transition: transform 0.3s ease; /* Para la animación de rotación */
+        border-top: 5px solid #333;
+        vertical-align: middle;
+        transition: transform 0.3s ease;
       }
-
-      nav .dropdown.open .dropdown-toggle::after {
-        transform: rotate(
-          180deg
-        ); /* Rota el triángulo cuando el menú está abierto */
+      nav .dropdown.show .dropdown-toggle::after {
+        /* Bootstrap usa 'show' en lugar de 'open' */
+        transform: rotate(180deg);
       }
-
-      nav .dropdown-toggle:hover {
-        color: #00abb3;
-      }
-
       nav .dropdown-menu {
         position: absolute;
         top: 100%;
         left: 0;
         background-color: #fff;
-        border: 1px solid #ccc;
+        border: 1px solid rgba(0, 0, 0, 0.15);
         border-top: none;
         list-style: none;
         padding: 0;
         margin: 0;
-        min-width: 180px; /* Ajusta el ancho mínimo del menú */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        z-index: 10; /* Asegura que esté por encima de otros elementos */
+        min-width: 180px;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+        z-index: 10;
         text-align: left;
+        display: none; /* Bootstrap lo oculta por defecto */
       }
-
-      nav .dropdown.open .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      nav .dropdown-menu li a {
+      nav .dropdown.show .dropdown-menu {
+        /* Bootstrap usa 'show' para mostrar */
         display: block;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #333;
-        transition: background-color 0.3s ease;
       }
-
-      nav .dropdown-menu li a:hover {
-        background-color: #f4f4f4;
+      nav .dropdown-menu a.dropdown-item {
+        display: block;
+        padding: 0.25rem 1.5rem;
+        clear: both;
+        font-weight: 400;
+        color: #212529;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+        text-decoration: none;
+      }
+      nav .dropdown-menu a.dropdown-item:hover,
+      nav .dropdown-menu a.dropdown-item:focus {
+        background-color: #f8f9fa;
+        color: #00abb3;
+        text-decoration: none;
+      }
+      /* Estilos para la navegación */
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        display: flex; /* Para la navegación horizontal */
+        justify-content: center; /* Centrar los items */
+      }
+      nav ul li {
+        margin: 0 0.5rem; /* Espacio entre los items */
+      }
+      nav a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        display: block; /* Para que el padding funcione correctamente */
+        padding: 0.5rem 0;
+      }
+      nav a:hover {
         color: #00abb3;
       }
-
-      /* Ajuste para el layout de navegación */
-      nav ul li {
-        display: inline-block;
-        margin: 0 15px;
-      }
-
-      /* Responsive para el dropdown (ejemplo básico) */
+      /* Responsive para el dropdown (ejemplo básico - Bootstrap lo maneja mejor) */
       @media (max-width: 768px) {
-        nav ul li {
-          display: block;
-          margin: 10px 0;
+        nav ul {
+          flex-direction: column; /* Apilar los items en pantallas pequeñas */
+          text-align: left;
         }
-
+        nav ul li {
+          margin: 0.25rem 0;
+        }
         nav .dropdown {
           display: block;
         }
-
         nav .dropdown-menu {
           position: static;
           border: none;
           box-shadow: none;
-          opacity: 1;
-          visibility: visible;
+          display: none; /* Oculto por defecto en móviles */
           min-width: auto;
-          text-align: center;
+          text-align: left;
         }
+        nav .dropdown.show .dropdown-menu {
+          display: block;
+        }
+      }
+      main section {
+        padding: 2rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        scroll-margin-top: 80px;
+      }
+      main section h3 {
+        color: #222;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+        font-size: 0.9em;
+      }
+      /* Estilos para las secciones con flex */
+      .section-flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 1rem;
+        gap: 1rem;
+      }
+      .section-flex > div {
+        flex: 1;
+        text-align: left;
+      }
+      .section-flex .image-container {
+        text-align: center;
+      }
+      .section-flex img {
+        max-width: 100%;
+        height: auto;
+      }
+      /* Estilos para la sección de tecnologías */
+      h4 + .tech-grid {
+        /* Aplica al .tech-grid que sigue inmediatamente a un h4 */
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(150px, 1fr)
+        ); /* Aumentamos el minmax */
+        gap: 1rem;
+        align-items: stretch;
+        justify-items: center;
+      }
+
+      /* Podemos intentar un máximo de 4 columnas */
+      h4 + .tech-grid {
+        --max-cols: 4;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(calc(100% / var(--max-cols) - 1rem), 1fr)
+        );
+      }
+
+      .tech-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 0.5rem;
+        aspect-ratio: 1 / 1;
+      }
+
+      .tech-item img {
+        max-width: 80%;
+        max-height: 60%;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .tech-item p {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+      /* Estilos para el formulario de contacto */
+      #contacto form {
+        max-width: 500px;
+        margin: 20px auto;
+        text-align: left;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+      }
+      #contacto label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      #contacto input[type="text"],
+      #contacto input[type="email"],
+      #contacto textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+      #contacto button[type="submit"] {
+        background-color: #4c49bd;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+      #contacto button[type="submit"]:hover {
+        background-color: #333080;
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="container-nav">
-        <div
-          class="logo"
-          style="display: inline-block; text-align: center; line-height: 1"
-        >
-          <img
-            src="imagenes/logos/logo.svg"
-            alt="Logo"
-            style="display: block; margin: 0 auto"
-          />
-          <div style="font-size: 20px; color: #444; margin-top: 4px">
-            B<span style="font-size: 12px; vertical-align: middle">&amp;</span>L
-            Consultores
-          </div>
-        </div>
-
-        <nav>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li class="dropdown">
-              <span class="dropdown-toggle">Soluciones</span>
-              <ul class="dropdown-menu">
-                <li><a href="#software-cobranza">Software de Cobranzas</a></li>
-                <li>
-                  <a href="#automatizacion-procesos"
+    <header class="bg-light">
+      <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container container-nav">
+          <a class="navbar-brand" href="#">
+            <div
+              class="logo"
+              style="display: inline-block; text-align: center; line-height: 1"
+            >
+              <img
+                src="imagenes/logos/logo.svg"
+                alt="Logo"
+                style="display: block; margin: 0 auto; height: 50px"
+              />
+              <div style="font-size: 1rem; color: #444; margin-top: 0.2rem">
+                B<span style="font-size: 0.7rem; vertical-align: middle"
+                  >&amp;</span
+                >L Consultores
+              </div>
+            </div>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#inicio">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#nosotros">Nosotros</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownSolutions"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Soluciones
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownSolutions"
+                >
+                  <a class="dropdown-item" href="#software-cobranza"
+                    >Software de Cobranzas</a
+                  >
+                  <a class="dropdown-item" href="#automatizacion-procesos"
                     >Automatización de Procesos</a
                   >
-                </li>
-                <li><a href="#plan-operativo">Plan Operativo</a></li>
-                <li><a href="#software-medida">Software a Medida</a></li>
-              </ul>
-            </li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
-      </div>
+                  <a class="dropdown-item" href="#plan-operativo"
+                    >Plan Operativo</a
+                  >
+                  <a class="dropdown-item" href="#software-medida"
+                    >Software a Medida</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <section
-        id="inicio"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 2rem;
-          gap: 2rem;
-        "
-      >
-        <!-- Texto a la izquierda -->
-        <div style="flex: 1">
-          <h3 style="font-size: 2rem; margin-bottom: 1rem">
-            Bienvenido a B&L Consultores
-          </h3>
-          <p style="font-size: 1.1rem; line-height: 1.6">
+      <section id="inicio" class="section-flex bg-light py-5">
+        <div class="text-left">
+          <h3 class="h3">Bienvenido a B&L Consultores</h3>
+          <p class="lead">
             Optimizamos tu trabajo con tecnología cloud innovadora.
           </p>
         </div>
-
-        <!-- Imagen a la derecha -->
-        <div style="flex: 1; text-align: center">
+        <div class="image-container">
           <img
             src="imagenes/otros/img1.png"
             alt="Ilustración profesional"
-            style="max-width: 100%; height: auto"
+            class="img-fluid"
           />
         </div>
       </section>
 
-      <section
-        id="nosotros"
-        style="display: flex; align-items: flex-start; padding: 2rem; gap: 2rem"
-      >
-        <div style="flex: 1; text-align: left">
-          <h2>Somos B&L Consultores</h2>
+      <section id="nosotros" class="section-flex py-5">
+        <div class="text-left">
+          <h2 class="h2">Somos B&L Consultores</h2>
           <p>Ingeniería de software a tu servicio.</p>
           <p>
             Nos mantenemos a la vanguardia de la innovación tecnológica,
@@ -199,333 +369,218 @@
             también preparan tu negocio para los desafíos del futuro digital.
           </p>
         </div>
-        <div style="flex: 1">
-          <h3>Tecnologías Utilizadas</h3>
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(3, minmax(100px, 1fr));
-              gap: 1.5rem;
-              align-items: center;
-              justify-items: center;
-            "
-          >
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <div
-                style="
-                  width: 100px;
-                  height: 100px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border: 1px solid #ccc;
-                  border-radius: 5px;
-                  overflow: hidden;
-                  margin-bottom: 0.75rem;
-                "
-              >
+        <div>
+          <h3 class="h3">Tecnologías Utilizadas</h3>
+
+          <h4>Bases de Datos</h4>
+
+          <div class="row row-cols-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="tech-item">
                 <img
                   src="imagenes/otros/sql-server.png"
                   alt="SQL Server"
-                  style="max-width: 100%; height: auto; display: block"
+                  class="img-fluid"
                   onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='SQL Server';"
                 />
                 <noscript>SQL Server</noscript>
+                <p>SQL Server</p>
               </div>
-              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
-                SQL Server
-              </p>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <div
-                style="
-                  width: 100px;
-                  height: 100px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border: 1px solid #ccc;
-                  border-radius: 5px;
-                  overflow: hidden;
-                  margin-bottom: 0.75rem;
-                "
-              >
+            <div class="col">
+              <div class="tech-item">
                 <img
                   src="imagenes/otros/oracle.png"
                   alt="Oracle"
-                  style="max-width: 100%; height: auto; display: block"
+                  class="img-fluid"
                   onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='Oracle';"
                 />
                 <noscript>Oracle</noscript>
+                <p>Oracle</p>
               </div>
-              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
-                Oracle
-              </p>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <div
-                style="
-                  width: 100px;
-                  height: 100px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border: 1px solid #ccc;
-                  border-radius: 5px;
-                  overflow: hidden;
-                  margin-bottom: 0.75rem;
-                "
-              >
+            <div class="col">
+              <div class="tech-item">
                 <img
                   src="imagenes/otros/mysql.png"
                   alt="MySQL"
-                  style="max-width: 100%; height: auto; display: block"
+                  class="img-fluid"
                   onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='MySQL';"
                 />
                 <noscript>MySQL</noscript>
+                <p>MySQL</p>
               </div>
-              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
-                MySQL
-              </p>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <div
-                style="
-                  width: 100px;
-                  height: 100px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border: 1px solid #ccc;
-                  border-radius: 5px;
-                  overflow: hidden;
-                  margin-bottom: 0.75rem;
-                "
-              >
+            <div class="col">
+              <div class="tech-item">
+                <img
+                  src="imagenes/otros/mariadb.png"
+                  alt="MariaDB"
+                  class="img-fluid"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='MySQL';"
+                />
+                <noscript>MariaDB</noscript>
+                <p>MariaDB</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="tech-item">
+                <img
+                  src="imagenes/otros/postgresql.png"
+                  alt="PostgreSQL"
+                  class="img-fluid"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='PostgreSQL';"
+                />
+                <noscript>PostgreSQL</noscript>
+                <p>PostgreSQL</p>
+              </div>
+            </div>
+          </div>
+
+          <h4>Tecnologías de Desarrollo</h4>
+          <div class="row row-cols-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="tech-item">
+                <img
+                  src="imagenes/otros/aspnet.png"
+                  alt="ASP.NET Core"
+                  class="img-fluid"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='ASP.NET Core';"
+                />
+                <noscript>ASP.NET Core</noscript>
+                <p>ASP.NET Core</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="tech-item">
+                <img
+                  src="imagenes/otros/php.png"
+                  alt="PHP"
+                  class="img-fluid"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='PHP';"
+                />
+                <noscript>PHP</noscript>
+                <p>PHP</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="tech-item">
                 <img
                   src="imagenes/otros/laravel.png"
                   alt="Laravel"
-                  style="max-width: 100%; height: auto; display: block"
+                  class="img-fluid"
                   onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='Laravel';"
                 />
                 <noscript>Laravel</noscript>
+                <p>Laravel</p>
               </div>
-              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
-                Laravel
-              </p>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <div
-                style="
-                  width: 100px;
-                  height: 100px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border: 1px solid #ccc;
-                  border-radius: 5px;
-                  overflow: hidden;
-                  margin-bottom: 0.75rem;
-                "
-              >
+            <div class="col">
+              <div class="tech-item">
                 <img
-                  src="imagenes/otros/aspnet.png"
-                  alt="ASP.NET"
-                  style="max-width: 100%; height: auto; display: block"
-                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='ASP.NET';"
+                  src="imagenes/otros/python.png"
+                  alt="Python"
+                  class="img-fluid"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='Python';"
                 />
-                <noscript>ASP.NET</noscript>
+                <noscript>Python</noscript>
+                <p>Python</p>
               </div>
-              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
-                ASP.NET
-              </p>
             </div>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <div
-                style="
-                  width: 100px;
-                  height: 100px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border: 1px solid #ccc;
-                  border-radius: 5px;
-                  overflow: hidden;
-                  margin-bottom: 0.75rem;
-                "
-              >
+            <div class="col">
+              <div class="tech-item">
+                <img
+                  src="imagenes/otros/angular.png"
+                  alt="Angular"
+                  class="img-fluid"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='Angular';"
+                />
+                <noscript>Angular</noscript>
+                <p>Angular</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="tech-item">
+                <img
+                  src="imagenes/otros/vuejs.png"
+                  alt="Vue.js"
+                  class="img-fluid"
+                  onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='Vue.js';"
+                />
+                <noscript>Vue.js</noscript>
+                <p>Vue.js</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="tech-item">
                 <img
                   src="imagenes/otros/javascript.png"
                   alt="JavaScript"
-                  style="max-width: 100%; height: auto; display: block"
+                  class="img-fluid"
                   onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#f9f9f9'; this.parentNode.innerHTML='JavaScript';"
                 />
                 <noscript>JavaScript</noscript>
+                <p>JavaScript</p>
               </div>
-              <p style="font-size: 1rem; text-align: center; margin-bottom: 0">
-                JavaScript
-              </p>
             </div>
           </div>
         </div>
       </section>
-      <section
-        id="software-cobranza"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 2rem;
-          gap: 2rem;
-        "
-      >
-        <!-- Texto a la izquierda -->
-        <div style="flex: 1">
-          <h3 style="font-size: 2rem; margin-bottom: 1rem">
+      <section id="software-cobranza" class="section-flex bg-light py-5">
+        <div class="text-left">
+          <h3 class="h3">
             Software de Cobranzas y Recuperación (RECSYS Cobranzas)
           </h3>
-          <p style="font-size: 1.1rem; line-height: 1.6">
+          <p class="lead">
             Gestiona la cobranza desde la etapa preventiva hasta la judicial.
-            Bitácora online para seguimiento detallado por cliente. Alertas
-            diarias de compromisos de pago. Cálculo automático de intereses y
-            gastos. Submódulo de letras (protestos, vencimientos, descuento /
-            cobranza libre, banco, etc.). Reportes detallados estadísticos:
-            atraso promedio, atraso máximo, comportamiento crediticio, línea de
-            crédito, niveles de compras, periodicidad, etc Clasificación de
-            clientes: lista negra y clientes premium.
           </p>
         </div>
-
-        <!-- Imagen a la derecha -->
-        <div style="flex: 1; text-align: center">
+        <div class="image-container">
           <img
             src="imagenes/otros/img2.png"
             alt="Ilustración profesional"
-            style="max-width: 100%; height: auto"
+            class="img-fluid"
           />
         </div>
       </section>
-      <section
-        id="plan-operativo"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 2rem;
-          gap: 2rem;
-        "
-      >
-        <!-- Texto a la izquierda -->
-        <div style="flex: 1">
-          <h3 style="font-size: 2rem; margin-bottom: 1rem">
-            Plan Operativo de Recuperaciones
-          </h3>
-          <p style="font-size: 1.1rem; line-height: 1.6">
+      <section id="plan-operativo" class="section-flex py-5">
+        <div class="text-left">
+          <h3 class="h3">Plan Operativo de Recuperaciones</h3>
+          <p class="lead">
             Definición de políticas de crédito y cobranzas. Manual de
             procedimientos del área de cobranzas. Diseño del flujo de trabajo
             (work-flow). Capacitación post implementación del RECSYS
           </p>
         </div>
-
-        <!-- Imagen a la derecha -->
-        <div style="flex: 1; text-align: center">
+        <div class="image-container">
           <img
             src="imagenes/otros/img4.png"
             alt="Ilustración profesional"
-            style="max-width: 100%; height: auto"
+            class="img-fluid"
           />
         </div>
       </section>
-      <section
-        id="automatizacion-procesos"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 2rem;
-          gap: 2rem;
-        "
-      >
-        <!-- Texto a la izquierda -->
-        <div style="flex: 1">
-          <h3 style="font-size: 2rem; margin-bottom: 1rem">
-            Automatización de Procesos
-          </h3>
-          <p style="font-size: 1.1rem; line-height: 1.6">
+      <section id="automatizacion-procesos" class="section-flex bg-light py-5">
+        <div class="text-left">
+          <h3 class="h3">Automatización de Procesos</h3>
+          <p class="lead">
             Envío automático de correos, SMS y WhatsApp preventivos. Emisión
             automatizada de comunicaciones de cobranza. Llamadas predictivas
             grabadas para vencimientos cercanos o recientes.
           </p>
         </div>
-
-        <!-- Imagen a la derecha -->
-        <div style="flex: 1; text-align: center">
+        <div class="image-container">
           <img
             src="imagenes/otros/img3.png"
             alt="Ilustración profesional"
-            style="max-width: 100%; height: auto"
+            class="img-fluid"
           />
         </div>
       </section>
-
-      <section
-        id="software-medida"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 2rem;
-          gap: 2rem;
-        "
-      >
-        <!-- Texto a la izquierda -->
-        <div style="flex: 1">
-          <h3 style="font-size: 2rem; margin-bottom: 1rem">
-            SERVICIO DE DESARROLLO DE SOFTWARE DE GESTION
-          </h3>
-          <p style="font-size: 1.1rem; line-height: 1.6">
+      <section id="software-medida" class="section-flex py-5">
+        <div class="text-left">
+          <h3 class="h3">SERVICIO DE DESARROLLO DE SOFTWARE DE GESTION</h3>
+          <p class="lead">
             En B&L Consultores, diseñamos soluciones tecnológicas que se adaptan
             exactamente a las necesidades de tu negocio. Nos especializamos en
             el desarrollo de software de gestión personalizado, pensado para
@@ -533,76 +588,74 @@
             decisiones más inteligentes.
           </p>
         </div>
-
-        <!-- Imagen a la derecha -->
-        <div style="flex: 1; text-align: center">
+        <div class="image-container">
           <img
             src="imagenes/otros/img5.png"
             alt="Ilustración profesional"
-            style="max-width: 100%; height: auto"
+            class="img-fluid"
           />
         </div>
       </section>
 
-      <section id="contacto">
-        <h2>Contacto</h2>
-        <form action="procesar_contacto.php" method="post">
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required />
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-          <button type="submit">Enviar Mensaje</button>
-        </form>
+      <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="h2 text-center mb-4">Contacto</h2>
+          <form
+            action="procesar_contacto.php"
+            method="post"
+            class="mx-auto"
+            style="max-width: 500px"
+          >
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                name="nombre"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <textarea
+                class="form-control"
+                id="mensaje"
+                name="mensaje"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <p>
-        &copy; 2025 B<span style="font-size: 12px; vertical-align: middle"
-          >&amp;</span
-        >L Consultores
-      </p>
+    <footer class="bg-dark text-white text-center py-3">
+      <div class="container">
+        <p class="mb-0">
+          &copy; 2025 B<span style="font-size: 0.7rem; vertical-align: middle"
+            >&amp;</span
+          >L Consultores
+        </p>
+      </div>
     </footer>
 
-    <script>
-      document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-
-          // Cerrar el menú desplegable si está abierto (opcional para experiencia en móviles)
-          const dropdown = this.closest(".dropdown");
-          if (dropdown && dropdown.classList.contains("open")) {
-            dropdown.classList.remove("open");
-          }
-        });
-      });
-
-      // JavaScript para el menú desplegable
-      const dropdownToggle = document.querySelector(".dropdown-toggle");
-      const dropdownMenu = document.querySelector(".dropdown-menu");
-
-      if (dropdownToggle && dropdownMenu) {
-        dropdownToggle.addEventListener("click", function (e) {
-          e.preventDefault();
-          this.closest(".dropdown").classList.toggle("open");
-        });
-
-        // Cerrar el menú desplegable si se hace clic fuera de él
-        document.addEventListener("click", function (e) {
-          if (
-            !e.target.closest(".dropdown") &&
-            document.querySelector(".dropdown.open")
-          ) {
-            document.querySelector(".dropdown.open").classList.remove("open");
-          }
-        });
-      }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
