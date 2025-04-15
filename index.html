@@ -171,25 +171,15 @@
         height: auto;
       }
       /* Estilos para la sección de tecnologías */
-      h4 + .tech-grid {
-        /* Aplica al .tech-grid que sigue inmediatamente a un h4 */
+      .tech-grid {
         display: grid;
         grid-template-columns: repeat(
           auto-fit,
-          minmax(150px, 1fr)
-        ); /* Aumentamos el minmax */
+          minmax(100px, 1fr)
+        ); /* Ajusta el minmax según necesites */
         gap: 1rem;
         align-items: stretch;
         justify-items: center;
-      }
-
-      /* Podemos intentar un máximo de 4 columnas */
-      h4 + .tech-grid {
-        --max-cols: 4;
-        grid-template-columns: repeat(
-          auto-fit,
-          minmax(calc(100% / var(--max-cols) - 1rem), 1fr)
-        );
       }
 
       .tech-item {
@@ -201,7 +191,7 @@
         border-radius: 5px;
         overflow: hidden;
         padding: 0.5rem;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 1; /* Mantenemos el cuadrado en pantallas más grandes */
       }
 
       .tech-item img {
@@ -209,6 +199,7 @@
         max-height: 60%;
         display: block;
         margin-bottom: 0.5rem;
+        object-fit: contain !important; /* Mantenemos el contain para ver toda la imagen */
       }
 
       .tech-item p {
@@ -216,6 +207,14 @@
         text-align: center;
         margin-bottom: 0;
         margin-top: 0;
+      }
+
+      /* Media query para pantallas pequeñas (ejemplo: hasta 767px de ancho) */
+      @media (max-width: 767px) {
+        .tech-item {
+          aspect-ratio: auto; /* Deshabilitamos la proporción cuadrada */
+          height: auto; /* Permitimos que la altura se ajuste al contenido */
+        }
       }
       /* Estilos para el formulario de contacto */
       #contacto form {
